@@ -1,0 +1,3 @@
+gradio
+base64
+langchain
