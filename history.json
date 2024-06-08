@@ -1,0 +1,10 @@
+{
+  "model": "llava",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Default Prompt Instructions"
+    }
+  ],
+  "stream": false
+}
