@@ -21,7 +21,7 @@ def ajouter_message(texte, image):
         # Faire la requête CURL
         url = 'http://localhost:11434/api/chat'
         headers = {'Content-Type': 'application/json'}
-        with open('conversation.json', 'r') as f:
+        with open('history.json', 'r') as f:
             data = f.read()
         response = requests.post(url, data=data, headers=headers)
     
@@ -119,4 +119,3 @@ iface = gr.Interface(fn=ajouter_message,
                      title="Document Query",
                      description="Ask Something")
 iface.launch()
-
