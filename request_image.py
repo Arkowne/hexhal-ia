@@ -15,7 +15,7 @@ def ajouter_message(texte, image):
         conversation["messages"].append(nouveau_message_utilisateur)
     
         # Écrire le fichier JSON mis à jour (avec le nouveau message utilisateur)
-        with open('conversation.json', 'w') as f:
+        with open('history.json', 'w') as f:
             json.dump(conversation, f, indent=2)
     
         # Faire la requête CURL
@@ -107,15 +107,15 @@ def ajouter_message(texte, image):
         else:
             print("Erreur lors de l'envoi de la requête :", response.status_code)
 
-    return response.text
+    return contenu_message_assistant["content"]
 
 # Exemple d'utilisation
 #texte_recu = input("Entrez le texte reçu : ")
 #ajouter_message(texte_recu)
 
 iface = gr.Interface(fn=ajouter_message,
-                     inputs=[gr.Textbox(label="Question"),gr.Image(type="pil")],
+                     inputs=[gr.Textbox(label="Question"),gr.Image(type="pil",label="Votre Image")],
                      outputs="text",
-                     title="Document Query",
+                     title="Chatte J'ai Pété",
                      description="Ask Something")
 iface.launch()
